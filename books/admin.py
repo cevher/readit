@@ -17,7 +17,4 @@ class BookAdmin(admin.ModelAdmin):
     list_display_links =("title", "date_reviewed")
     list_filter= ("is_favorite",)
     search_fields =("title","authors__name",)
-
-
-
 admin.site.register(Author)
