@@ -1,5 +1,5 @@
 from django.core.urlresolvers import reverse
-
+from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import book, Author
@@ -63,7 +63,7 @@ class ReviewList(View):
         return render(request, "list-to-review.html", context)
 
 
-
+@login_required
 def review_book(request, pk):
     Book = get_object_or_404(book, pk=pk)
     if request.method=='POST':
@@ -71,6 +71,7 @@ def review_book(request, pk):
         if form.is_valid():
             Book.is_favorite = form.cleaned_data['is_favorite']
             Book.review = form.cleaned_data['review']
+            Book.reviewed_by =request.user
             Book.save()
 
             return redirect('review-books')
