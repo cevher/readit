@@ -130,3 +130,6 @@ STATICFILES_DIRS = (
 def show_toolbar(request):
     return True
 SHOW_TOOLBAR_CALLBACK = show_toolbar
+
+#Auth
+LOGIN_URL ='/login/'

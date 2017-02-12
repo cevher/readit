@@ -23,7 +23,8 @@ class UserFactory(factory.django.DjangoModelFactory):
 
     first_name = factory.Faker('first_name')
     last_name = factory.Faker('last_name')
-    password = make_password('test')
+    username = first_name
+    password = make_password("test")
 
 class BookFactory(factory.django.DjangoModelFactory):
     """
