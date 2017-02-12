@@ -36,7 +36,7 @@ urlpatterns = [
     url(r'^books/(?P<pk>[-\w]+)/$',BookDetail.as_view(), name='book-detail'),
     url(r'^authors/add/$',login_required(CreateAuthor.as_view()), name='add-author'),
     url(r'^authors/(?P<pk>[-\w]+)/$',AuthorDetail.as_view(), name='author-detail'),
-    url(r'^review/$', login_required(ReviewList.as_view()), name='review-books'),
+        url(r'^review/$', login_required(ReviewList.as_view()), name='review-books'),
     url(r'^review/(?P<pk>[-\w]+)/$', review_book, name='review-book'),
 
 ]
